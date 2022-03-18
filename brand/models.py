@@ -16,3 +16,6 @@ class Brand(models.Model):
         db_table = "tb_brand"
         verbose_name = "汽车品牌"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.B_name

@@ -36,7 +36,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "brand",
+    "type",
 ]
+REST_FRAMEWORK = {
+    # drf提供的渲染类
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  # 此处有bug 源码问题 注意更改
+    ],
+    "DEFAULT_FILTER_BACKENDS": ["rest_framework.filters.OrderingFilter",
+                                "django_filters.rest_framework.backends.DjangoFilterBackend"],
+    "DEFAULT_PAGINATION_CLASS": "utils.pagination.PageNumberPaginationManual",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

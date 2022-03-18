@@ -50,6 +50,7 @@ class CarBrandSerializers_2(serializers.Serializer):
 
 
 class CarBrandSerializers(serializers.ModelSerializer):
+    type_set = serializers.StringRelatedField(many=True)
     class Meta:
         model = Brand
         # 所有字段
